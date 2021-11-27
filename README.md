@@ -1,6 +1,27 @@
 # react-native-initial
 ![](https://build.appcenter.ms/v0.1/apps/d6afaabd-26d3-460e-9828-fddee9707df2/branches/main/badge)
-## IOS
+
+## [Running your React Native application](https://reactnative.dev/docs/environment-setup)​
+
+**Step 1:** Start Metro​
+
+To start Metro, run **npx react-native start** inside your React Native project folder:
+
+```
+npx react-native start
+```
+**Step 2:** Start your application​
+```
+npx react-native run-ios
+```
+
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
+## AppCenter: IOS 
 1. Add the SDK to the project
 In a terminal window opened at the root of a React Native project, enter the following line to add Crash and Analytics services to your app:
     ```
@@ -41,8 +62,32 @@ In a terminal window opened at the root of a React Native project, enter the fol
 3. Explore data
 
     Now build and launch your app, then go to the Analytics section. You should see one active user and at least one session! The charts will get more relevant as you get more users. Once your app actually crashes, you will have Crashes data show up as well.
+## XCUITEST
+  **Prerequisites**
+    
+In order to submit tests, you need to install App Center Command Line Interface (CLI), version 0.2.1 or later.
 
+1. Install Node.js, version 6.3 or later.
+
+2. Install the appcenter-cli NPM package:
+```
+npm install -g appcenter-cli
+```
+[Prepare your XCUITest test code for running in App Center.](https://docs.microsoft.com/en-us/appcenter/test-cloud/frameworks/xcuitest/)
+
+[Generate your XCUITest build folder.](https://docs.microsoft.com/en-us/appcenter/test-cloud/frameworks/xcuitest/#preparing-your-application-bundles)
+
+**Running tests**
+
+To upload and schedule tests run the following command:
+```
+appcenter test run xcuitest --app "nitikornchumnankul-gmail.com/react-native-build" --devices 379f829e --test-series "master" --locale "en_US" --build-dir pathToXCUItestBuildFolder
+```
+Note: **pathToXCUITestBuildFolder** is the XCUITest build folder that contains your XCUITest tests built as a .app file.
 ## References
 [App Center Sample App for React Native](https://github.com/microsoft/appcenter-sampleapp-react-native)
+
+
+
 
 [React Native Tutorial #16 - Appcenter iOS Build Configuration and AppStore Submission | Tek Hub](https://www.youtube.com/watch?v=Xlpq8qv_8bI)
